@@ -1,6 +1,7 @@
 import ContactSection from "@/components/ContactSection";
 import FeaturedApartments from "@/components/FeaturedApartments";
 import Hero from "@/components/Hero";
+import SocialMediaSection from "@/components/SocialMediaSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
 
 export default function Index() {
@@ -10,6 +11,7 @@ export default function Index() {
       <FeaturedApartments />
       <WhyChooseUs />
       <ContactSection />
+      <SocialMediaSection />
     </main>
   );
 }
