@@ -1,32 +1,48 @@
 # VisiTirana Apartments
 
-A modern React + TypeScript website for **VisiTirana Apartments**, designed to present short-stay apartments in Tirana with a polished guest-facing interface, bilingual content, and real backend integration.
+A modern React + TypeScript apartment website scaffold for short-stay rentals in Tirana.
 
-## Overview
+This repository contains the structured frontend foundation for the VisiTirana project, including reusable UI components, route-based page architecture, bilingual language switching, apartment listing pages, contact flow, and a stronger premium homepage presentation.
 
-This project is more than a static website. It combines a clean front-end experience with real supporting infrastructure for apartment listings, bilingual presentation, maps, and calendar synchronization.
+## Project Overview
 
-The website currently includes:
+VisiTirana Apartments is designed as a guest-facing apartment website focused on:
 
-- Homepage with animated hero and branded sections
-- Apartments listing page
-- Apartment detail pages
-- Contact page
-- Language toggle support (English / Albanian)
-- Google Maps integration
-- Supabase integration
-- Supabase Edge Function for calendar synchronization
-- Database migrations for apartment-related data
+- clearer apartment presentation
+- stronger visual branding
+- bilingual experience (English / Albanian)
+- better homepage structure
+- cleaner routing and reusable frontend architecture
 
-## Key Features
+The current version in this repository represents a polished frontend starter with reusable components and realistic page sections. It is intended to serve as the clean base for expanding into the full apartment platform.
 
-- Responsive homepage with dedicated desktop, tablet, and mobile hero assets
-- Apartment cards and listing cards with booking-focused UI
-- Bilingual content architecture through `LanguageContext`
-- Supabase-backed project structure
-- Edge Function for syncing Airbnb / Booking calendar feeds
-- JSON-based apartment image libraries
-- Clean component-based React architecture
+## Current Features
+
+### Homepage
+- premium animated intro section
+- structured hero section
+- featured apartment cards
+- guest journey / self check-in explanation section
+- contact call-to-action section
+- social media section foundation
+
+### Apartments
+- apartments listing page
+- apartment detail page structure
+- reusable apartment cards
+- route-based apartment detail navigation
+
+### Contact
+- branded contact page
+- Google Map placeholder structure
+- reusable contact section
+
+### Shared Structure
+- sticky navigation
+- footer
+- scroll-to-top behavior
+- reusable UI primitives
+- bilingual language context
 
 ## Tech Stack
 
@@ -35,80 +51,38 @@ The website currently includes:
 - Vite
 - Tailwind CSS
 - shadcn/ui
-- React Router
-- TanStack Query
-- Supabase
-- Supabase Edge Functions
-- Google Maps API
+- React Router DOM
+- TanStack React Query
+- Lucide React
 
 ## Project Structure
 
-```bash
-public/
-  lovable-uploads/
-
+```text
 src/
-  assets/
   components/
     ui/
+    AnimatedIntro.tsx
+    ApartmentCard.tsx
+    ApartmentListingCard.tsx
+    ContactSection.tsx
+    FeaturedApartments.tsx
+    Footer.tsx
+    GoogleMap.tsx
+    Hero.tsx
+    Navbar.tsx
+    ScrollToTop.tsx
+    SocialMediaSection.tsx
+    WhyChooseUs.tsx
   contexts/
-  hooks/
-  integrations/
-    supabase/
+    LanguageContext.tsx
   lib/
-    images/
+    data.ts
   pages/
-  types/
+    ApartmentDetail.tsx
+    Apartments.tsx
+    Contact.tsx
+    Index.tsx
+    NotFound.tsx
   App.tsx
   index.css
   main.tsx
-```
-
-## Development
-
-Install dependencies:
-
-```bash
-npm install
-```
-
-Run locally:
-
-```bash
-npm run dev
-```
-
-Build for production:
-
-```bash
-npm run build
-```
-
-Preview production build:
-
-```bash
-npm run preview
-```
-
-## Environment Variables
-
-This project uses environment variables for external services such as Supabase and Google Maps.
-
-Create a local `.env` file based on `.env.example` and keep real keys private.
-
-## Notes
-
-This repository is structured as a clean, expandable front-end and integration-ready foundation.
-
-Future improvements may include:
-
-- richer apartment content from live database queries
-- stronger reservation workflows
-- production contact form delivery
-- more detailed availability presentation
-- deployment and domain connection
-- admin-facing content or listing management tools
-
-## Author
-
-Structured and rebuilt for professional portfolio and GitHub presentation by Almir Peza.

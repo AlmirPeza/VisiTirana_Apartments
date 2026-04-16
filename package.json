@@ -1,6 +1,6 @@
 {
-  "name": "visitirana-website",
-  "private": true,
+  "name": "visitirana-apartments",
+  "private": "true",
   "version": "0.1.0",
   "type": "module",
   "scripts": {
