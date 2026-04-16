@@ -1,121 +1,54 @@
-import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Menu, X } from "lucide-react";
 
 import { useLanguage } from "@/contexts/LanguageContext";
+import { siteContent } from "@/lib/data";
 
 export default function Navbar() {
-  const [mobileOpen, setMobileOpen] = useState(false);
   const { language, toggleLanguage } = useLanguage();
-
-  const closeMobileMenu = () => setMobileOpen(false);
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
     [
-      "nav-link text-sm",
-      isActive ? "active-nav-link text-foreground" : "",
+      "text-sm font-semibold uppercase tracking-[0.2em] transition",
+      isActive ? "text-primary" : "text-foreground/70 hover:text-foreground",
     ].join(" ");
 
   return (
-    <header className="sticky top-0 z-50 border-b border-black/5 bg-white/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-black/5 bg-white/90 backdrop-blur">
       <div className="container flex h-20 items-center justify-between">
-        <Link
-          to="/"
-          className="flex items-center gap-3"
-          onClick={closeMobileMenu}
-          aria-label="Go to homepage"
-        >
-          <span className="inline-block h-3 w-3 rounded-full bg-[#ff5757]" />
-          <span className="font-heading text-lg font-bold tracking-[0.22em] text-foreground">
-            VISITIRANA
-          </span>
+        <Link to="/" className="flex items-center gap-3">
+          <div className="h-3 w-3 rounded-full bg-primary" />
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-primary">
+              {siteContent.brand.name}
+            </p>
+            <p className="text-sm font-medium text-foreground/70">
+              {siteContent.brand.title[language]}
+            </p>
+          </div>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
-          <NavLink to="/" className={navLinkClass}>
-            Home
+          <NavLink to="/" className={navLinkClass} end>
+            {siteContent.navbar.home[language]}
           </NavLink>
 
           <NavLink to="/apartments" className={navLinkClass}>
-            Apartments
+            {siteContent.navbar.apartments[language]}
           </NavLink>
 
           <NavLink to="/contact" className={navLinkClass}>
-            Contact
+            {siteContent.navbar.contact[language]}
           </NavLink>
-
-          <button
-            type="button"
-            onClick={toggleLanguage}
-            className="rounded-full border border-border px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-foreground transition hover:border-primary hover:text-primary"
-            aria-label="Toggle language"
-          >
-            {language === "en" ? "SQ" : "EN"}
-          </button>
         </nav>
 
         <button
           type="button"
-          onClick={() => setMobileOpen((prev) => !prev)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border md:hidden"
-          aria-label="Toggle menu"
+          onClick={toggleLanguage}
+          className="rounded-full border border-black/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-foreground transition hover:border-primary hover:text-primary"
         >
-          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+          {language === "en" ? "SQ" : "EN"}
         </button>
       </div>
-
-      {mobileOpen && (
-        <div className="border-t border-black/5 bg-white md:hidden">
-          <div className="container flex flex-col gap-2 py-4">
-            <NavLink
-              to="/"
-              onClick={closeMobileMenu}
-              className={({ isActive }) =>
-                `rounded-md px-2 py-3 text-sm font-medium transition ${
-                  isActive ? "text-primary" : "text-foreground/80"
-                }`
-              }
-            >
-              Home
-            </NavLink>
-
-            <NavLink
-              to="/apartments"
-              onClick={closeMobileMenu}
-              className={({ isActive }) =>
-                `rounded-md px-2 py-3 text-sm font-medium transition ${
-                  isActive ? "text-primary" : "text-foreground/80"
-                }`
-              }
-            >
-              Apartments
-            </NavLink>
-
-            <NavLink
-              to="/contact"
-              onClick={closeMobileMenu}
-              className={({ isActive }) =>
-                `rounded-md px-2 py-3 text-sm font-medium transition ${
-                  isActive ? "text-primary" : "text-foreground/80"
-                }`
-              }
-            >
-              Contact
-            </NavLink>
-
-            <button
-              type="button"
-              onClick={() => {
-                toggleLanguage();
-                closeMobileMenu();
-              }}
-              className="mt-2 w-fit rounded-full border border-border px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-foreground"
-            >
-              {language === "en" ? "Switch to SQ" : "Switch to EN"}
-            </button>
-          </div>
-        </div>
-      )}
     </header>
   );
 }

@@ -1,72 +1,90 @@
 import { Link } from "react-router-dom";
+import { Mail, MessageCircle, MapPin } from "lucide-react";
 
 import { useLanguage } from "@/contexts/LanguageContext";
-import { homeContent } from "@/lib/data";
+import { homeContent, siteContent } from "@/lib/data";
 
 export default function ContactSection() {
   const { language } = useLanguage();
-  const content = homeContent.contact;
 
   return (
-    <section className="bg-gradient-to-br from-[#fff3ef] via-[#ffe7e1] to-[#ffe3f0] py-24">
+    <section className="bg-gradient-to-br from-[#fff1ec] via-[#ffe2da] to-[#ffd8d2] py-24">
       <div className="container">
-        <div className="overflow-hidden rounded-[2rem] border border-black/5 bg-white shadow-lg">
-          <div className="grid gap-10 p-8 md:p-12 lg:grid-cols-[1fr_0.9fr] lg:items-center">
-            <div>
-              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-primary">
-                {content.eyebrow[language]}
-              </p>
+        <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+          <div>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-primary">
+              {homeContent.contact.eyebrow[language]}
+            </p>
 
-              <h2 className="font-heading text-4xl font-bold leading-tight md:text-5xl">
-                {content.title[language]}
-              </h2>
+            <h2 className="font-heading text-4xl font-bold leading-tight md:text-5xl">
+              {homeContent.contact.title[language]}
+            </h2>
 
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
-                {content.description[language]}
-              </p>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
+              {homeContent.contact.description[language]}
+            </p>
 
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Link
-                  to="/contact"
-                  className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:opacity-95"
-                >
-                  {content.buttonPrimary[language]}
-                </Link>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Link
+                to="/contact"
+                className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:opacity-95"
+              >
+                {homeContent.contact.buttonPrimary[language]}
+              </Link>
 
-                <Link
-                  to="/apartments"
-                  className="rounded-full border border-black/10 px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-black/5"
-                >
-                  {content.buttonSecondary[language]}
-                </Link>
-              </div>
+              <Link
+                to="/apartments"
+                className="rounded-full border border-primary px-6 py-3 text-sm font-semibold text-primary transition hover:bg-primary hover:text-white"
+              >
+                {homeContent.contact.buttonSecondary[language]}
+              </Link>
             </div>
+          </div>
 
-            <div className="rounded-[1.75rem] bg-[#fff7f5] p-6">
-              <div className="space-y-4">
-                <div className="rounded-2xl border border-black/5 bg-white p-4">
-                  <label className="mb-2 block text-sm font-medium text-foreground">
-                    {language === "en" ? "Your Name" : "Emri juaj"}
-                  </label>
-                  <div className="h-12 rounded-xl bg-muted" />
+          <div className="rounded-[2rem] border border-white/60 bg-white/80 p-8 shadow-lg backdrop-blur">
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <Mail size={18} />
                 </div>
 
-                <div className="rounded-2xl border border-black/5 bg-white p-4">
-                  <label className="mb-2 block text-sm font-medium text-foreground">
-                    {language === "en" ? "Your Email" : "Email-i juaj"}
-                  </label>
-                  <div className="h-12 rounded-xl bg-muted" />
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+                    Email
+                  </p>
+                  <p className="mt-1 text-base text-foreground">
+                    {siteContent.contactInfo.email}
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <MessageCircle size={18} />
                 </div>
 
-                <div className="rounded-2xl border border-black/5 bg-white p-4">
-                  <label className="mb-2 block text-sm font-medium text-foreground">
-                    {language === "en" ? "Your Message" : "Mesazhi juaj"}
-                  </label>
-                  <div className="h-28 rounded-xl bg-muted" />
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+                    WhatsApp
+                  </p>
+                  <p className="mt-1 text-base text-foreground">
+                    {siteContent.contactInfo.whatsapp}
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <MapPin size={18} />
                 </div>
 
-                <div className="rounded-full bg-primary px-6 py-3 text-center text-sm font-semibold text-primary-foreground">
-                  {language === "en" ? "Send Message" : "Dërgo Mesazh"}
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+                    {language === "en" ? "Location" : "Lokacioni"}
+                  </p>
+                  <p className="mt-1 text-base text-foreground">
+                    {siteContent.contactInfo.location[language]}
+                  </p>
                 </div>
               </div>
             </div>

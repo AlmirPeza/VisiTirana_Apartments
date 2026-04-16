@@ -1,27 +1,42 @@
-import React, { createContext, useContext, useMemo, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
-type Language = "en" | "sq";
+export type Language = "en" | "sq";
 
-type LanguageContextValue = {
+type LanguageContextType = {
   language: Language;
   setLanguage: (language: Language) => void;
   toggleLanguage: () => void;
 };
 
-const LanguageContext = createContext<LanguageContextValue | undefined>(undefined);
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>("en");
+  const [language, setLanguageState] = useState<Language>("en");
+
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem("visitirana-language");
+
+    if (savedLanguage === "en" || savedLanguage === "sq") {
+      setLanguageState(savedLanguage);
+    }
+  }, []);
+
+  const setLanguage = (value: Language) => {
+    setLanguageState(value);
+    localStorage.setItem("visitirana-language", value);
+  };
+
+  const toggleLanguage = () => {
+    setLanguage(language === "en" ? "sq" : "en");
+  };
 
   const value = useMemo(
     () => ({
       language,
       setLanguage,
-      toggleLanguage: () => {
-        setLanguage((prev) => (prev === "en" ? "sq" : "en"));
-      },
+      toggleLanguage,
     }),
-    [language],
+    [language]
   );
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;

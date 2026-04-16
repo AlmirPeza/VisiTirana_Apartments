@@ -20,6 +20,39 @@ export type Apartment = ApartmentPreview & {
   amenities: LocalizedText[];
 };
 
+export const siteContent = {
+  brand: {
+    name: "Visitirana",
+    title: {
+      en: "Visitirana Apartments",
+      sq: "Visitirana Apartments",
+    },
+  },
+  navbar: {
+    home: { en: "Home", sq: "Kreu" },
+    apartments: { en: "Apartments", sq: "Apartamentet" },
+    contact: { en: "Contact", sq: "Kontakt" },
+  },
+  footer: {
+    description: {
+      en: "Short-stay apartment experience focused on comfort, practical booking, and better guest presentation.",
+      sq: "Eksperiencë apartamentesh me qëndrim të shkurtër, e fokusuar te rehatia, rezervimi praktik dhe prezantimi më i mirë për vizitorët.",
+    },
+    rights: {
+      en: "All rights reserved.",
+      sq: "Të gjitha të drejtat e rezervuara.",
+    },
+  },
+  contactInfo: {
+    email: "hello@visitirana.com",
+    whatsapp: "+355 69 000 0000",
+    location: {
+      en: "Tirana, Albania",
+      sq: "Tiranë, Shqipëri",
+    },
+  },
+};
+
 export const homeContent = {
   hero: {
     eyebrow: {
@@ -110,14 +143,8 @@ export const homeContent = {
 export const apartments: Apartment[] = [
   {
     id: "blloku-balcony",
-    name: {
-      en: "Blloku Balcony",
-      sq: "Blloku Balcony",
-    },
-    area: {
-      en: "Ish-Blloku",
-      sq: "Ish-Blloku",
-    },
+    name: { en: "Blloku Balcony", sq: "Blloku Balcony" },
+    area: { en: "Ish-Blloku", sq: "Ish-Blloku" },
     guests: "2–3",
     bookingUrl: "https://www.airbnb.com/",
     image:
@@ -131,30 +158,15 @@ export const apartments: Apartment[] = [
       sq: "Blloku Balcony paraqitet si një opsion i ndriçuar dhe i përshtatshëm për vizitorët që duan akses të shpejtë në qendrën e Tiranës, kafene, restorante dhe një qëndrim praktik në qytet.",
     },
     amenities: [
-      {
-        en: "Self check-in friendly setup",
-        sq: "Mundësi praktike për self check-in",
-      },
-      {
-        en: "Strong central location",
-        sq: "Lokacion shumë i mirë qendror",
-      },
-      {
-        en: "Designed for short city stays",
-        sq: "I menduar për qëndrime të shkurtra në qytet",
-      },
+      { en: "Self check-in friendly setup", sq: "Mundësi praktike për self check-in" },
+      { en: "Strong central location", sq: "Lokacion shumë i mirë qendror" },
+      { en: "Designed for short city stays", sq: "I menduar për qëndrime të shkurtra në qytet" },
     ],
   },
   {
     id: "one-bedroom-flat",
-    name: {
-      en: "1 Bedroom Flat",
-      sq: "Apartament 1+1",
-    },
-    area: {
-      en: "Taiwani",
-      sq: "Taiwani",
-    },
+    name: { en: "1 Bedroom Flat", sq: "Apartament 1+1" },
+    area: { en: "Taiwani", sq: "Taiwani" },
     guests: "3–4",
     bookingUrl: "https://www.airbnb.com/",
     image:
@@ -168,30 +180,15 @@ export const apartments: Apartment[] = [
       sq: "Ky apartament paraqitet si një qëndrim fleksibël në qytet me shpërndarje më të mirë të hapësirës, i përshtatshëm për çifte, familje të vogla ose vizitorë që qëndrojnë pak më gjatë.",
     },
     amenities: [
-      {
-        en: "Extra room compared with studio stays",
-        sq: "Më shumë hapësirë krahasuar me studio",
-      },
-      {
-        en: "Practical city positioning",
-        sq: "Pozicionim praktik në qytet",
-      },
-      {
-        en: "Suitable for small groups",
-        sq: "I përshtatshëm për grupe të vogla",
-      },
+      { en: "Extra room compared with studio stays", sq: "Më shumë hapësirë krahasuar me studio" },
+      { en: "Practical city positioning", sq: "Pozicionim praktik në qytet" },
+      { en: "Suitable for small groups", sq: "I përshtatshëm për grupe të vogla" },
     ],
   },
   {
     id: "roma-studio",
-    name: {
-      en: "Roma Studio",
-      sq: "Roma Studio",
-    },
-    area: {
-      en: "City Centre",
-      sq: "Qendër",
-    },
+    name: { en: "Roma Studio", sq: "Roma Studio" },
+    area: { en: "City Centre", sq: "Qendër" },
     guests: "2",
     bookingUrl: "https://www.airbnb.com/",
     image:
@@ -205,30 +202,15 @@ export const apartments: Apartment[] = [
       sq: "Roma Studio paraqitet si një opsion i thjeshtë dhe i pozicionuar mirë për vizitorët që vlerësojnë thjeshtësinë, praktikën dhe lidhjen e shpejtë me qendrën e Tiranës.",
     },
     amenities: [
-      {
-        en: "Compact and efficient layout",
-        sq: "Planimetri kompakte dhe efikase",
-      },
-      {
-        en: "Modern city-stay style",
-        sq: "Stil modern për qëndrim në qytet",
-      },
-      {
-        en: "Suitable for solo or couple stays",
-        sq: "I përshtatshëm për një person ose çift",
-      },
+      { en: "Compact and efficient layout", sq: "Planimetri kompakte dhe efikase" },
+      { en: "Modern city-stay style", sq: "Stil modern për qëndrim në qytet" },
+      { en: "Suitable for solo or couple stays", sq: "I përshtatshëm për një person ose çift" },
     ],
   },
   {
     id: "shallvaret-apartment",
-    name: {
-      en: "Shallvaret Apartment",
-      sq: "Apartamenti Shallvaret",
-    },
-    area: {
-      en: "Shallvaret",
-      sq: "Shallvaret",
-    },
+    name: { en: "Shallvaret Apartment", sq: "Apartamenti Shallvaret" },
+    area: { en: "Shallvaret", sq: "Shallvaret" },
     guests: "2–4",
     bookingUrl: "https://www.airbnb.com/",
     image:
@@ -242,18 +224,9 @@ export const apartments: Apartment[] = [
       sq: "Apartamenti Shallvaret paraqitet si një qëndrim miqësor për vizitorët me rehati të balancuar, akses të dobishëm dhe fleksibilitet për një gamë më të gjerë vizitorësh afatshkurtër.",
     },
     amenities: [
-      {
-        en: "Balanced layout and comfort",
-        sq: "Planimetri dhe rehati e balancuar",
-      },
-      {
-        en: "Good fit for mixed guest needs",
-        sq: "I përshtatshëm për nevoja të ndryshme të vizitorëve",
-      },
-      {
-        en: "Useful location within Tirana",
-        sq: "Lokacion i dobishëm brenda Tiranës",
-      },
+      { en: "Balanced layout and comfort", sq: "Planimetri dhe rehati e balancuar" },
+      { en: "Good fit for mixed guest needs", sq: "I përshtatshëm për nevoja të ndryshme të vizitorëve" },
+      { en: "Useful location within Tirana", sq: "Lokacion i dobishëm brenda Tiranës" },
     ],
   },
 ];

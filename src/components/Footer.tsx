@@ -1,36 +1,58 @@
 import { Link } from "react-router-dom";
 
+import { useLanguage } from "@/contexts/LanguageContext";
+import { siteContent } from "@/lib/data";
+
 export default function Footer() {
+  const { language } = useLanguage();
   const year = new Date().getFullYear();
 
   return (
     <footer className="border-t border-black/5 bg-white">
-      <div className="container flex flex-col gap-6 py-8 md:flex-row md:items-center md:justify-between">
-        <div>
-          <p className="font-heading text-sm font-bold uppercase tracking-[0.2em] text-foreground">
-            VisiTirana
-          </p>
-          <p className="mt-2 max-w-md text-sm text-muted-foreground">
-            Guest-focused apartment presentation for Tirana, built with a clean
-            React + TypeScript foundation and ready for bilingual content,
-            listings, maps, and availability integrations.
-          </p>
-        </div>
+      <div className="container py-12">
+        <div className="grid gap-8 md:grid-cols-[1.2fr_0.8fr] md:items-end">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.35em] text-primary">
+              {siteContent.brand.name}
+            </p>
 
-        <div className="flex flex-col gap-2 text-sm text-muted-foreground md:items-end">
-          <div className="flex items-center gap-4">
-            <Link to="/" className="transition hover:text-foreground">
-              Home
-            </Link>
-            <Link to="/apartments" className="transition hover:text-foreground">
-              Apartments
-            </Link>
-            <Link to="/contact" className="transition hover:text-foreground">
-              Contact
-            </Link>
+            <h3 className="mt-3 font-heading text-2xl font-bold">
+              {siteContent.brand.title[language]}
+            </h3>
+
+            <p className="mt-4 max-w-2xl text-base leading-8 text-muted-foreground">
+              {siteContent.footer.description[language]}
+            </p>
           </div>
 
-          <p>© {year} VisiTirana. All rights reserved.</p>
+          <div className="md:text-right">
+            <div className="flex flex-wrap gap-4 md:justify-end">
+              <Link
+                to="/"
+                className="text-sm font-medium text-foreground/70 transition hover:text-primary"
+              >
+                {siteContent.navbar.home[language]}
+              </Link>
+
+              <Link
+                to="/apartments"
+                className="text-sm font-medium text-foreground/70 transition hover:text-primary"
+              >
+                {siteContent.navbar.apartments[language]}
+              </Link>
+
+              <Link
+                to="/contact"
+                className="text-sm font-medium text-foreground/70 transition hover:text-primary"
+              >
+                {siteContent.navbar.contact[language]}
+              </Link>
+            </div>
+
+            <p className="mt-6 text-sm text-muted-foreground">
+              © {year} {siteContent.brand.name}. {siteContent.footer.rights[language]}
+            </p>
+          </div>
         </div>
       </div>
     </footer>
